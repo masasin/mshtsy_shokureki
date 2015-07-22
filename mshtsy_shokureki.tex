@@ -41,11 +41,20 @@
 \let\CJKsymbol\CJKoldsymbol
 \let\CJKpunctsymbol\CJKoldpunctsymbol}
 
+\usepackage{datetime2}
+
+\DTMnewdatestyle{jpdate}{%
+  \renewcommand*{\DTMdisplaydate}[4]{##1年##2月##3日}%
+  \renewcommand*{\DTMDisplaydate}{\DTMdisplaydate}%
+}
+\DTMsetdatestyle{jpdate}
+
 \begin{document}
 \thispagestyle{plain}
 \makeheading[\emph{職務経歴書}]{勝者神優{\scriptsize{マサヒト・シンユウ}}}
 
-\section{\footnotesize{2015年5月18日現在}}
+%\section{\footnotesize{2015年5月18日現在}}
+\section{\footnotesize{\today 現在}}
 
 \section{要約}
 学部でロボット工学を学び，卒業するために6個のCo-op（有償インターンシップ）を修了することが必要でした．
