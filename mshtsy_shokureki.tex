@@ -1,0 +1,220 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage{resume_template_jp}
+\usepackage{hyperref}
+\usepackage{xeCJK}
+\usepackage{topcapt,booktabs,multirow}
+\setCJKmainfont[BoldFont=IPAGothic, AutoFakeBold=true]{IPAGothic}
+\usepackage{dcolumn} % for apsrtable outputs
+\usepackage{xunicode} % extra support for unicode
+\XeTeXlinebreaklocale "ja"
+\XeTeXlinebreakskip=0pt plus 1pt
+\XeTeXlinebreakpenalty=0
+
+% value > 0
+\def\xeCJKembold{0.15}
+
+% hack into xeCJK, you don't need to understand it
+\def\saveCJKnode{\dimen255\lastkern}
+\def\restoreCJKnode{\kern-\dimen255\kern\dimen255}
+
+% save old definition of \CJKsymbol and \CJKpunctsymbol for CJK output
+\let\CJKoldsymbol\CJKsymbol
+\let\CJKoldpunctsymbol\CJKpunctsymbol
+
+% apply pdf literal fake bold
+\def\CJKfakeboldsymbol#1{%
+\special{pdf:literal direct 2 Tr \xeCJKembold\space w}%
+\CJKoldsymbol{#1}%
+\saveCJKnode
+\special{pdf:literal direct 0 Tr}%
+\restoreCJKnode}
+\def\CJKfakeboldpunctsymbol#1{%
+\special{pdf:literal direct 2 Tr \xeCJKembold\space w}%
+\CJKoldpunctsymbol{#1}%
+\saveCJKnode
+\special{pdf:literal direct 0 Tr}%
+\restoreCJKnode}
+\newcommand\CJKfakebold[1]{%
+\let\CJKsymbol\CJKfakeboldsymbol
+\let\CJKpunctsymbol\CJKfakeboldpunctsymbol
+#1%
+\let\CJKsymbol\CJKoldsymbol
+\let\CJKpunctsymbol\CJKoldpunctsymbol}
+
+\begin{document}
+\thispagestyle{plain}
+\makeheading[\emph{職務経歴書}]{勝者神優{\scriptsize{マサヒト・シンユウ}}}
+
+\section{\footnotesize{2015年5月18日現在}}
+
+\section{要約}
+
+学部でロボット工学を学び，卒業するために6個のCo-op（有償インターンシップ）を修了することが必要でした．各インターンシップは4ヶ月で，私の場合では3ヶ国で計2年間を働きました．インターンの労働時間・役割・収入・責任等は正社員のと比べて同じ位です．
+
+\section{業務経験}
+\href{http://starquip.com/}{\CJKfakebold{\textbf{Starquip Integrated Systems有限会社}}}\hfill カナダ，オンタリオ州，トロント
+
+\begin{outerlist}
+\item[] \textit{デザイン技術者} \hfill \textbf{2012年5月〜2012年8月}
+  \begin{innerlist}
+  \item カスタムな工業用の空気圧式・真空式のリフトアシスト装置の設計
+  \begin{itemize}
+    \item Solidworksを使用して，お客様の個々のニーズに基づいて装置を設計した
+    \item クライアントと共にデザインの正しさや実用性を確認しつつ開発した
+  \end{itemize}
+  \item 現存の製品の図面を2Dから3Dに変換
+  \begin{itemize}
+    \item Solidworksのパーツやアセンブリを作成した
+    \item ASME規格に則った図面も作成した
+  \end{itemize}
+  \item 設計時間を大幅に短縮
+  \begin{itemize}
+    \item 従来の機械設計のプロセスをSolidworksでモジュール化した
+    \item 空気回路設計図作成のプロセスをAutoCADでモジュール化した
+    \item 新しいデザインの設計に要する時間を約7時間程度から１時間程度に削減した
+  \end{itemize}
+  \item 3週間の間，部長が出張していたため，管理なしに効率的に仕事が出来た
+  \end{innerlist}
+\end{outerlist}
+
+\halfblankline
+
+\href{http://www.kqbikes.com/}{\CJKfakebold{\textbf{Kevin Quan Studios有限会社}}}\hfill カナダ，オンタリオ州，トロント
+
+\begin{outerlist}
+\item[] \textit{ジュニアプロジェクト技術者} \hfill \textbf{2011年9月〜2011年12月}
+  \begin{innerlist}
+  \item マウンテンバイクや競走用の自転車の設計
+  \begin{itemize}
+    \item Solidworksのサーフェスモデリングを訓練を受けた
+    \item Solidworksで自転車のパーツとアセンブリを設計して図面を作成した
+    \item 自転車のパーツ毎の金型も設計した
+  \end{itemize}
+  \item NACA 4桁系列に則った翼型生成プログラムを作成
+  \begin{itemize}
+    \item Solidworksで使える翼型曲線を生成できるプログラムを作成した
+    \item プロトタイプはLibreOffice Calcのスプレッドシートで作られた
+    \item プログラムをPythonに書き換えて自動化した
+  \end{itemize}
+  \item 複数のロードバイクのそれぞれの空気抵抗を最小化した。
+  \begin{itemize}
+    \item Solidworksの計算流体力学分析機能を使用した
+    \item 上記の翼型と自転車の断面を2Dと3Dで分析した
+  \end{itemize}
+  \end{innerlist}
+\end{outerlist}
+
+\halfblankline
+
+\href{http://www.intellimec.com/}{\CJKfakebold{\textbf{Intelligent Mechatronics Systems株式会社}}}\hfill カナダ，オンタリオ州，ウォータールー
+
+\begin{outerlist}
+\item[] \textit{ハードウェア技術者} \hfill \textbf{2011年1月〜2011年4月}
+  \begin{innerlist}
+  \item 将来の商品の試作機を作成し，その商品をテストした
+  \item デザイン技術者を支援した
+  \end{innerlist}
+\end{outerlist}
+
+\halfblankline
+
+\href{http://rpl.uwaterloo.ca/}{\CJKfakebold{\textbf{ウォータールー大学マルチスケール積層造形研究室}}}\hfill カナダ，オンタリオ州，ウォータールー
+
+\begin{outerlist}
+\item[] \textit{研究アシスタント} \hfill \textbf{2010年5月〜2010年9月}
+  \begin{innerlist}
+  \item 高精度立体自由造形機の設計
+    \begin{itemize}
+      \item 機械の目的は骨や軟骨組織再生のためのスカフォルドを印刷することである
+      \item 機械の枠組み・印字ヘッドアセンブリ・密閉装置を設計した
+      \item 設計や設計図の作成はAutodesk Inventorで行った
+    \end{itemize}
+  \item 高精度立体自由造形機の組み立て
+    \begin{itemize}
+      \item 様々な供給者から見積を取り材料を購入した
+      \item 大学の機械工場で図面に従って部品を加工し，現場で組み立てた
+    \end{itemize}
+  \item MATLABとOctaveを使って走査電子顕微鏡写真の画像処理を行った
+  \end{innerlist}
+\end{outerlist}
+
+\halfblankline
+
+\href{http://www.aub.edu.lb/fea/me/research_labs/cvl/Pages/home.aspx}{\CJKfakebold{\textbf{ベイルート・アメリカン大学移動ロボット研究室}}}\hfill レバノン，ベイルート
+
+\begin{outerlist}
+\item[] \textit{研究アシスタント} \hfill \textbf{2009年9月〜2009年12月}
+  \begin{innerlist}
+  \item ロボットの位置情報確認システムの開発
+    \begin{itemize}
+      \item 地上ロボットや航空ロボット向けシステムである
+      \item 先輩が双眼カメラを使ってビジュアル・オドメトリで位置計測システムを開発した
+      \item 市販の慣性計測装置を使用して，位置推定を推定した
+      \item カメラと慣性センサの位置情報を合わせて，拡張カルマンフィルタでエラーを修正した
+      \item プログラムにはC++とMatlab言語を用い、リナックス環境で開発した。
+    \end{itemize}
+  \end{innerlist}
+\end{outerlist}
+
+\halfblankline
+
+\CJKfakebold{\textbf{Sierra Construction Systems有限会社}}\hfill シエラレオネ，フリータウン
+
+\begin{outerlist}
+\item[] \textit{訓練中エンジニア} \hfill \textbf{2009年1月〜2009年4月}
+  \begin{innerlist}
+  \item 建物の予算・構造図等の作成
+    \begin{itemize}
+      \item AutoCADとAutodesk Architectural Desktopを使用した
+      \item 建物の構造図・電気図を作成した
+      \item 建設プロジェクトの予算を算定した
+      \item 出来形図を確認し，図面を更新した
+    \end{itemize}
+  \item 会社の支払い名簿や支払いシステムの自動化
+    \begin{itemize}
+      \item 従来のシステムはカードや精算表を使って，手作業で行ってた
+      \item 新しいシステムをMicrosoft Excelで作成した
+      \item マクロ等を書いて，ロバストにした
+      \item 従来13名の会計士によってなされていた作業を1人で行うことが可能になった
+      \item 必要な時間は2週間以上から1日に短縮した
+      \item 以前より効率は約60倍向上した
+    \end{itemize}
+  \end{innerlist}
+\end{outerlist}
+
+\section{環境・ソフト等}
+下記の項目は実務経験，又は教育や個人プロジェクトで使用経験があります．
+\begin{outerlist}
+\item[言語] Python (Numpy, Scipy, Matplotlib, socket等を含めて), C++, C, Matlab, Bash, \LaTeX
+\item[OS] Linux (Arch, Fedora, Gentoo, Ubuntu等), Windows (XP, Vista, 7)
+\item[環境] Raspberry Pi, Arduino, mbed, AVR, Allen Bradley PLC
+\item[3Dソフト] Solidworks, Autodesk Inventor, AutoCAD, Sketchup
+\item[その他] Vim, Gimp, Inkscape, LibreOffice, Microsoft Office, Google Docs
+\end{outerlist}
+
+\section{資格}
+\begin{outerlist}
+\item[2010年12月] 普通自動車　第一種免許　取得 (レバノン)
+\item[2012年1月] 応急処置　心肺蘇生(CPR-HCP)資格　取得
+\item[2014年5月] 「留学」の在留資格　取得 (2016年6月まで有効)
+\end{outerlist}
+
+\section{語学}
+\begin{outerlist}
+\item[ネイティブ] 英語，フランス語，レバノン語
+\item[流暢] 日本語，アラビア語，スペイン語
+\item[初級] クリオ語
+\item[勉強中] 中国語、ドイツ語、ロシア語
+\end{outerlist}
+
+\section{自己PR}
+\begin{outerlist}
+\item[] 学部で卒業したメカトロニクス工学では，機械・電気・コンピュータ・制御を融合した分野です．そして，Co-op制度の経験もしたため，新しい事を速く習得し，適応能力が高いと思っております．現在，修士では研究も学んでおります．知識や技術習得に対する意欲が高くて，仕事や勉強は一生懸命取り組んで，結果を重視します．
+
+\item[] 更に，母国語は英語とフランス語を含めて，業務経験を3ヶ国で得たため，貴社の国際チームやクライエントの役に立てると思っております．
+
+% \item[] 私は幼い頃から自転車に興味があって，ずっと自転車を乗っていました．長い旅行ったり，自転車ショップにボランティアつとして勤めたり，自転車の設計会社で働いたりしました．今後は頼っていたシマノでこの経験を活かして，人の生活の質を向上させると考えております．
+\end{outerlist}
+\flushright{以上．}
+
+\end{document}
