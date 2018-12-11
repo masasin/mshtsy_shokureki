@@ -8,7 +8,7 @@ once:
 	xelatex $(MASTER)
 
 show:
-	evince $(MASTER).pdf
+	open $(MASTER).pdf
 
 refs:
 	make once
