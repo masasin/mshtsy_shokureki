@@ -8,7 +8,7 @@ once:
 	xelatex $(MASTER)
 
 show:
-	open $(MASTER).pdf
+	okular $(MASTER).pdf
 
 refs:
 	make once
